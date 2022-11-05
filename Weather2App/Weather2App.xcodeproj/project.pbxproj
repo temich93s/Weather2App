@@ -19,6 +19,8 @@
 		AACF7DA829165779005C1E17 /* MyCitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DA729165779005C1E17 /* MyCitiesController.swift */; };
 		AACF7DAB29165B69005C1E17 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DAA29165B69005C1E17 /* WeatherViewController.swift */; };
 		AACF7DAD29165B82005C1E17 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DAC29165B82005C1E17 /* WeatherCell.swift */; };
+		AACF7DAF29166099005C1E17 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DAE29166099005C1E17 /* GradientView.swift */; };
+		AACF7DB2291663B9005C1E17 /* WeekDayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DB1291663B9005C1E17 /* WeekDayPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		AACF7DA729165779005C1E17 /* MyCitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesController.swift; sourceTree = "<group>"; };
 		AACF7DAA29165B69005C1E17 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		AACF7DAC29165B82005C1E17 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		AACF7DAE29166099005C1E17 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		AACF7DB1291663B9005C1E17 /* WeekDayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,7 @@
 		AACF7D8829163EEB005C1E17 /* Weather2App */ = {
 			isa = PBXGroup;
 			children = (
+				AACF7DB029166392005C1E17 /* Custom UI Components */,
 				AACF7DA929165B4F005C1E17 /* Weather */,
 				AACF7DA429165748005C1E17 /* MyCities */,
 				AACF7D9F29165527005C1E17 /* AllCities */,
@@ -107,6 +112,15 @@
 				AACF7DAC29165B82005C1E17 /* WeatherCell.swift */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		AACF7DB029166392005C1E17 /* Custom UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				AACF7DAE29166099005C1E17 /* GradientView.swift */,
+				AACF7DB1291663B9005C1E17 /* WeekDayPicker.swift */,
+			);
+			path = "Custom UI Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +196,8 @@
 			files = (
 				AACF7DA62916575F005C1E17 /* MyCitiesCell.swift in Sources */,
 				AACF7DA829165779005C1E17 /* MyCitiesController.swift in Sources */,
+				AACF7DAF29166099005C1E17 /* GradientView.swift in Sources */,
+				AACF7DB2291663B9005C1E17 /* WeekDayPicker.swift in Sources */,
 				AACF7DAD29165B82005C1E17 /* WeatherCell.swift in Sources */,
 				AACF7D9E29164163005C1E17 /* LoginFormController.swift in Sources */,
 				AACF7D8A29163EEB005C1E17 /* AppDelegate.swift in Sources */,
