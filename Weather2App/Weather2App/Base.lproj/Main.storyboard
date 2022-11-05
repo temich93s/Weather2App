@@ -50,9 +50,12 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdI-I8-Izq">
-                                        <rect key="frame" x="174.5" y="509.5" width="65" height="31"/>
+                                        <rect key="frame" x="167" y="509.5" width="80.5" height="38"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Войти"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Войти">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d2A-4w-tX5"/>
                                             <segue destination="xyG-FI-Mg9" kind="show" id="URG-lE-90e"/>
@@ -119,9 +122,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="0Hn-hp-vc0"/>
                     <connections>
+                        <outlet property="authButton" destination="IdI-I8-Izq" id="8Lr-CD-fFx"/>
                         <outlet property="loginInput" destination="1ca-3J-TH5" id="GbC-2L-Xov"/>
+                        <outlet property="loginTitleView" destination="OsW-Im-7VQ" id="VRl-db-tfi"/>
                         <outlet property="passwordInput" destination="HTo-Eg-w7g" id="kNu-2A-8QZ"/>
+                        <outlet property="passwordTitleView" destination="qDE-nQ-tj6" id="dzt-aR-gsy"/>
                         <outlet property="scrollView" destination="3sh-nL-heG" id="746-yx-z2z"/>
+                        <outlet property="titleView" destination="I2m-gg-5yY" id="Ods-d1-eRw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
