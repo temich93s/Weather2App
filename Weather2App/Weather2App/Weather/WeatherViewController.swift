@@ -27,7 +27,7 @@ extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataS
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as? WeatherCell {
-            cell.weather.text = "30 C"
+            cell.weather.text = "-30 C"
             cell.time.text = "30.08.2017 18:00"
             return cell
         }

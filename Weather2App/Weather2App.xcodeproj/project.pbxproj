@@ -13,7 +13,6 @@
 		AACF7D9329163EF0005C1E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACF7D9229163EF0005C1E17 /* Assets.xcassets */; };
 		AACF7D9629163EF0005C1E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AACF7D9429163EF0005C1E17 /* LaunchScreen.storyboard */; };
 		AACF7D9E29164163005C1E17 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7D9D29164163005C1E17 /* LoginFormController.swift */; };
-		AACF7DA12916555D005C1E17 /* AllCitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DA02916555D005C1E17 /* AllCitiesController.swift */; };
 		AACF7DA329165577005C1E17 /* AllCitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DA229165577005C1E17 /* AllCitiesCell.swift */; };
 		AACF7DA62916575F005C1E17 /* MyCitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DA52916575F005C1E17 /* MyCitiesCell.swift */; };
 		AACF7DA829165779005C1E17 /* MyCitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DA729165779005C1E17 /* MyCitiesController.swift */; };
@@ -21,6 +20,8 @@
 		AACF7DAD29165B82005C1E17 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DAC29165B82005C1E17 /* WeatherCell.swift */; };
 		AACF7DAF29166099005C1E17 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DAE29166099005C1E17 /* GradientView.swift */; };
 		AACF7DB2291663B9005C1E17 /* WeekDayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DB1291663B9005C1E17 /* WeekDayPicker.swift */; };
+		AACF7DB4291682F5005C1E17 /* AllCitiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DB3291682F5005C1E17 /* AllCitiesController.swift */; };
+		AACF7DB629168F11005C1E17 /* WeatherCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7DB529168F11005C1E17 /* WeatherCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +33,6 @@
 		AACF7D9529163EF0005C1E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AACF7D9729163EF0005C1E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AACF7D9D29164163005C1E17 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
-		AACF7DA02916555D005C1E17 /* AllCitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesController.swift; sourceTree = "<group>"; };
 		AACF7DA229165577005C1E17 /* AllCitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCitiesCell.swift; sourceTree = "<group>"; };
 		AACF7DA52916575F005C1E17 /* MyCitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesCell.swift; sourceTree = "<group>"; };
 		AACF7DA729165779005C1E17 /* MyCitiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesController.swift; sourceTree = "<group>"; };
@@ -40,6 +40,8 @@
 		AACF7DAC29165B82005C1E17 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		AACF7DAE29166099005C1E17 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AACF7DB1291663B9005C1E17 /* WeekDayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayPicker.swift; sourceTree = "<group>"; };
+		AACF7DB3291682F5005C1E17 /* AllCitiesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCitiesController.swift; sourceTree = "<group>"; };
+		AACF7DB529168F11005C1E17 /* WeatherCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +92,7 @@
 		AACF7D9F29165527005C1E17 /* AllCities */ = {
 			isa = PBXGroup;
 			children = (
-				AACF7DA02916555D005C1E17 /* AllCitiesController.swift */,
+				AACF7DB3291682F5005C1E17 /* AllCitiesController.swift */,
 				AACF7DA229165577005C1E17 /* AllCitiesCell.swift */,
 			);
 			path = AllCities;
@@ -110,6 +112,7 @@
 			children = (
 				AACF7DAA29165B69005C1E17 /* WeatherViewController.swift */,
 				AACF7DAC29165B82005C1E17 /* WeatherCell.swift */,
+				AACF7DB529168F11005C1E17 /* WeatherCollectionViewLayout.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -195,13 +198,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACF7DA62916575F005C1E17 /* MyCitiesCell.swift in Sources */,
+				AACF7DB4291682F5005C1E17 /* AllCitiesController.swift in Sources */,
 				AACF7DA829165779005C1E17 /* MyCitiesController.swift in Sources */,
+				AACF7DB629168F11005C1E17 /* WeatherCollectionViewLayout.swift in Sources */,
 				AACF7DAF29166099005C1E17 /* GradientView.swift in Sources */,
 				AACF7DB2291663B9005C1E17 /* WeekDayPicker.swift in Sources */,
 				AACF7DAD29165B82005C1E17 /* WeatherCell.swift in Sources */,
 				AACF7D9E29164163005C1E17 /* LoginFormController.swift in Sources */,
 				AACF7D8A29163EEB005C1E17 /* AppDelegate.swift in Sources */,
-				AACF7DA12916555D005C1E17 /* AllCitiesController.swift in Sources */,
 				AACF7DAB29165B69005C1E17 /* WeatherViewController.swift in Sources */,
 				AACF7DA329165577005C1E17 /* AllCitiesCell.swift in Sources */,
 				AACF7D8C29163EEB005C1E17 /* SceneDelegate.swift in Sources */,
