@@ -25,6 +25,10 @@ class LoginFormController: UIViewController {
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         // Присваиваем его UIScrollVIew
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
+        
+        // Les8 - Сначала потребуется создать UIPanGestureRecognizer и добавить его на основной view экрана:
+        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
+        self.view.addGestureRecognizer(recognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,9 +41,12 @@ class LoginFormController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         // Запуск анимаций
-        animateTitlesAppearing()
-        animateTitleAppearing()
-        animateAuthButton()
+        animateTitlesLes8()
+        animateInputsLes8()
+        animateTitleLes8()
+//        animateTitlesAppearing()
+//        animateTitleAppearing()
+//        animateAuthButton()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -157,4 +164,86 @@ class LoginFormController: UIViewController {
         animation.fillMode = CAMediaTimingFillMode.backwards
         self.authButton.layer.add(animation, forKey: nil)
     }
+    
+    // анимация для надписей над полями ввода логина и пароля. Для них применим keyframe-анимацию, при которой эти надписи будут меняться местами.
+    func animateTitlesLes8() {
+        // Зададим начальную трансформацию. Чтобы поставить надписи на соседнее место, достаточно поменять их центры. Для этого — вычислить расстояние по оси y и сделать трансформацию
+        let offset = abs(self.loginTitleView.frame.midY - self.passwordTitleView.frame.midY)
+        self.loginTitleView.transform = CGAffineTransform(translationX: 0, y: offset)
+        self.passwordTitleView.transform = CGAffineTransform(translationX: 0, y: -offset)
+        
+        // создадим keyframe-анимацию и добавим в нее ключевые кадры. Первым будет перемещение в сторону и вниз, а вторым — на исходное положение
+        UIView.animateKeyframes(withDuration: 1, delay: 1, options: .calculationModeCubicPaced,
+            animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5,
+                    animations: {
+                        self.loginTitleView.transform = CGAffineTransform(translationX: 150, y: 50)
+                        self.passwordTitleView.transform = CGAffineTransform(translationX: -150, y: -50)
+                        })
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5,
+                    animations: {
+                        self.loginTitleView.transform = .identity
+                        self.passwordTitleView.transform = .identity
+                        })
+                },
+            completion: nil)
+    }
+    
+    // Для полей ввода будем использовать предыдущую анимацию плавного появления с одновременным увеличением.
+    func animateInputsLes8() {
+        let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeInAnimation.fromValue = 0
+        fadeInAnimation.toValue = 1
+        
+        let scaleAnimation = CASpringAnimation(keyPath: "transform.scale")
+        scaleAnimation.fromValue = 0
+        scaleAnimation.toValue = 1
+        scaleAnimation.stiffness = 150
+        scaleAnimation.mass = 2
+        
+        let animationsGroup = CAAnimationGroup()
+        animationsGroup.duration = 1
+        animationsGroup.beginTime = CACurrentMediaTime() + 1
+        animationsGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        animationsGroup.fillMode = CAMediaTimingFillMode.backwards
+        animationsGroup.animations = [fadeInAnimation, scaleAnimation]
+        
+        self.loginInput.layer.add(animationsGroup, forKey: nil)
+        self.passwordInput.layer.add(animationsGroup, forKey: nil)
+    }
+    
+    // Анимацию для заголовка менять не будем, а сделаем с помощью UIViewpropertyAnimator
+    func animateTitleLes8() {
+        self.titleView.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height / 2)
+        let animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 0.5,
+                                              animations: { self.titleView.transform = .identity })
+        animator.startAnimation(afterDelay: 1)
+    }
+    
+    // Создадим интерактивную анимацию для кнопки авторизации. Сделаем так, чтобы ее можно было оттягивать вниз, а при отпускании она бы с эффектом пружины возвращалась на исходную точку.
+    
+    var interactiveAnimator: UIViewPropertyAnimator!
+    
+    @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            interactiveAnimator?.startAnimation()
+            interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.5,
+                                                         animations: {
+                self.authButton.transform = CGAffineTransform(translationX: 0, y: 150)
+            })
+            interactiveAnimator.pauseAnimation()
+        case .changed:
+            let translation = recognizer.translation(in: self.view)
+            interactiveAnimator.fractionComplete = translation.y / 100
+        case .ended:
+            interactiveAnimator.stopAnimation(true)
+            interactiveAnimator.addAnimations {
+                self.authButton.transform = .identity
+            }
+            interactiveAnimator.startAnimation()
+        default: return
+        }
+    }
+    
 }
