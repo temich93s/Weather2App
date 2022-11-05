@@ -26,9 +26,9 @@ class MyCitiesController: UITableViewController {
                 // Получаем город по индексу
                 let city = allCitiesController.cities[indexPath.row]
                 // Проверяем, что такого города нет в списке
-                if !cities.contains(city) {
+                if !cities.contains(city.title) {
                     // Добавляем город в список выбранных
-                    cities.append(city)
+                    cities.append(city.title)
                     // Обновляем таблицу
                     tableView.reloadData()
                 }
