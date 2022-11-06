@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA5090E629174293005E7DC4 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5090E529174293005E7DC4 /* CustomPushAnimator.swift */; };
+		AA5090E82917460E005E7DC4 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5090E72917460E005E7DC4 /* CustomPopAnimator.swift */; };
+		AA5090EA29174957005E7DC4 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5090E929174957005E7DC4 /* CustomNavigationController.swift */; };
 		AACF7D8A29163EEB005C1E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7D8929163EEB005C1E17 /* AppDelegate.swift */; };
 		AACF7D8C29163EEB005C1E17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF7D8B29163EEB005C1E17 /* SceneDelegate.swift */; };
 		AACF7D9129163EEB005C1E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AACF7D8F29163EEB005C1E17 /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA5090E529174293005E7DC4 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
+		AA5090E72917460E005E7DC4 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
+		AA5090E929174957005E7DC4 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		AACF7D8629163EEB005C1E17 /* Weather2App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather2App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACF7D8929163EEB005C1E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AACF7D8B29163EEB005C1E17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +128,9 @@
 			children = (
 				AACF7DAE29166099005C1E17 /* GradientView.swift */,
 				AACF7DB1291663B9005C1E17 /* WeekDayPicker.swift */,
+				AA5090E529174293005E7DC4 /* CustomPushAnimator.swift */,
+				AA5090E72917460E005E7DC4 /* CustomPopAnimator.swift */,
+				AA5090E929174957005E7DC4 /* CustomNavigationController.swift */,
 			);
 			path = "Custom UI Components";
 			sourceTree = "<group>";
@@ -198,9 +207,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACF7DA62916575F005C1E17 /* MyCitiesCell.swift in Sources */,
+				AA5090E82917460E005E7DC4 /* CustomPopAnimator.swift in Sources */,
 				AACF7DB4291682F5005C1E17 /* AllCitiesController.swift in Sources */,
 				AACF7DA829165779005C1E17 /* MyCitiesController.swift in Sources */,
+				AA5090E629174293005E7DC4 /* CustomPushAnimator.swift in Sources */,
 				AACF7DB629168F11005C1E17 /* WeatherCollectionViewLayout.swift in Sources */,
+				AA5090EA29174957005E7DC4 /* CustomNavigationController.swift in Sources */,
 				AACF7DAF29166099005C1E17 /* GradientView.swift in Sources */,
 				AACF7DB2291663B9005C1E17 /* WeekDayPicker.swift in Sources */,
 				AACF7DAD29165B82005C1E17 /* WeatherCell.swift in Sources */,

@@ -432,10 +432,10 @@
             </objects>
             <point key="canvasLocation" x="2386" y="66"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Custom Navigation Controller-->
         <scene sceneID="R0A-Io-8gg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GMf-bI-jYX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GMf-bI-jYX" customClass="CustomNavigationController" customModule="Weather2App" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YQw-XF-ohz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
