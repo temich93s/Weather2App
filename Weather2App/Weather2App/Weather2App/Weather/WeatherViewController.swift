@@ -9,12 +9,18 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
+    // создаем экземпляр сервиса
+    let weatherService = WeatherService()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        // отправим запрос для получения погоды для Москвы
+        weatherService.loadWeatherData(city: "Moscow")
     }
 
 }
