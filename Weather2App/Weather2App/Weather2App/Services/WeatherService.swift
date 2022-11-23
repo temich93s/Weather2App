@@ -32,6 +32,7 @@ class WeatherService {
             let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
             // вызваем метод сохранения данных при получении их с сервера.
             self.saveWeatherData(weather)
+            print(weather)
             // После того, как получим данные, вызовем замыкание и передадим ему полученные данные.
             completion(weather)
         }
