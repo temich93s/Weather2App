@@ -17,6 +17,7 @@ class WeatherCell: UICollectionViewCell {
         return df
     }()
 
+    
     @IBOutlet weak var weather: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var time: UILabel!

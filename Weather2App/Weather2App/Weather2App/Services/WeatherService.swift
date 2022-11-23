@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 class WeatherService {
     // базовый URL сервиса
@@ -29,8 +30,30 @@ class WeatherService {
             // парсим json.
             guard let data = response.value else { return }
             let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
+            // вызваем метод сохранения данных при получении их с сервера.
+            self.saveWeatherData(weather)
+            print(weather)
             // После того, как получим данные, вызовем замыкание и передадим ему полученные данные.
             completion(weather)
+        }
+    }
+    
+    //сохранение погодных данных в Realm. У метода есть аргумент, массив объектов погоды, именно его мы будем сохранять в Realm.
+
+    func saveWeatherData(_ weathers: [Weather]) {
+        // обработка исключений при работе с хранилищем. Исключения будут созданы, если при получении доступа к хранилищу возникнет ошибка, например, структура хранилища не будет соответствовать объекту или он может не оказаться на устройстве.
+        do {
+            // получаем доступ к хранилищу.  Мы получаем объект класса Realm для доступа к хранилищу
+            let realm = try Realm()
+            // начинаем изменять хранилище. Имея эти объекты, мы начнем сеанс записи командой realm.beginWrite(), добавим все наши объекты в хранилище realm.add(weathers) и завершим сеанс записи командой try realm.commitWrite().
+            realm.beginWrite()
+            // кладем все объекты класса погоды в хранилище. Если попытаться изменить данные в хранилище без сеанса записи, мы увидим ошибку в консоли, а приложение упадет
+            realm.add(weathers)
+            // завершаем изменения хранилища
+            try realm.commitWrite()
+        } catch {
+            // если произошла ошибка, выводим ее в консоль
+            print(error)
         }
     }
     
