@@ -29,6 +29,7 @@ class LoginFormController: UIViewController {
         // Les8 - Сначала потребуется создать UIPanGestureRecognizer и добавить его на основной view экрана:
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
         self.view.addGestureRecognizer(recognizer)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
