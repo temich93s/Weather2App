@@ -30,8 +30,6 @@ class LoginFormController: UIViewController {
         let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
         self.view.addGestureRecognizer(recognizer)
         
-        let weatherService = WeatherService()
-        weatherService.loadWeatherData(city: "Moscow")
     }
     
     override func viewWillAppear(_ animated: Bool) {
