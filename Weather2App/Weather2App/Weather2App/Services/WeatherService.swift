@@ -5,53 +5,71 @@
 //  Created by 2lup on 21.11.2022.
 //
 
+// import Alamofire
+
 import Foundation
-import Alamofire
 import RealmSwift
 import SwiftyJSON
 
 class WeatherService {
-    // базовый URL сервиса
-    let baseUrl = "http://api.openweathermap.org"
-    // ключ для доступа к сервису
     let apiKey = "92cabe9523da26194b02974bfcd50b7e"
     
-    // Получим массив объектов Weather. Теперь их надо показать на экране. Ответ Alamofire, как и URLSession, обрабатывается асинхронно, параллельно основному потоку, так что, чтобы вытащить из responseData-замыкания данные, мы будем использовать замыкание. Замыкание мы передадим в метод получения данных loadWeatherData. После того, как получим данные, вызовем замыкание и передадим ему полученные данные.
     func loadWeatherData(city: String, completion: @escaping ([WeatherSwiftyJSON]) -> Void) {
-        // путь для получения погоды за 5 дней
-        let path = "/data/2.5/forecast"
-        // параметры, город, единицы измерения градусы, ключ для доступа к сервису
-        let parameters: Parameters = [ "q": city,
-                                       "units": "metric",
-                                       "appid": apiKey ]
-        // составляем URL из базового адреса сервиса и конкретного пути к ресурсу
-        let url = baseUrl + path
-        // делаем запрос
-        AF.request(url, method: .get, parameters: parameters).responseData { response in
-            // парсим json.
-            guard let data = response.value else { return }
-            // let weather = try! JSONDecoder().decode(WeatherSwiftyJSON.self, from: data).list
-            // вызваем метод сохранения данных при получении их с сервера.
-            // self.saveWeatherData(weather)
-            // print(weather)
-            
-            guard let data = response.value else { return }
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+        var urlConstructor = URLComponents()
+        urlConstructor.scheme = "http"
+        urlConstructor.host = "api.openweathermap.org"
+        urlConstructor.path = "/data/2.5/forecast"
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "q", value: city),
+            URLQueryItem(name: "units", value: "metric"),
+            URLQueryItem(name: "appid", value: apiKey)
+        ]
+        guard let urlConstructor = urlConstructor.url else { return }
+        let task = session.dataTask(with: urlConstructor) { (data, response, error) in
+            guard let data = data else { return }
+            var weather: [WeatherSwiftyJSON] = []
             do {
                 let json = try JSON(data: data)
-                var weather: [WeatherSwiftyJSON] = []
                 print(json["list"].arrayValue.count)
                 for index in 0..<json["list"].arrayValue.count {
                     guard let safeWeater = WeatherSwiftyJSON(json: json, index: index) else { continue }
                     weather.append(safeWeater)
                 }
-                print(weather)
-                // После того, как получим данные, вызовем замыкание и передадим ему полученные данные.
                 completion(weather)
             } catch {
                 print(error)
             }
         }
+        task.resume()
     }
+        
+//        let baseUrl = "http://api.openweathermap.org"
+//        let apiKey = "92cabe9523da26194b02974bfcd50b7e"
+//
+//        let path = "/data/2.5/forecast"
+//        let parameters: Parameters = [ "q": city,
+//                                       "units": "metric",
+//                                       "appid": apiKey ]
+//        let url = baseUrl + path
+//        AF.request(url, method: .get, parameters: parameters).responseData { response in
+//            guard let data = response.value else { return }
+//            do {
+//                let json = try JSON(data: data)
+//                var weather: [WeatherSwiftyJSON] = []
+//                print(json["list"].arrayValue.count)
+//                for index in 0..<json["list"].arrayValue.count {
+//                    guard let safeWeater = WeatherSwiftyJSON(json: json, index: index) else { continue }
+//                    weather.append(safeWeater)
+//                }
+//                print(weather)
+//                completion(weather)
+//            } catch {
+//                print(error)
+//            }
+//        }
+//    }
     
     //сохранение погодных данных в Realm. У метода есть аргумент, массив объектов погоды, именно его мы будем сохранять в Realm.
 
