@@ -46,12 +46,12 @@ class WeatherCell: UICollectionViewCell {
     }
     
     // Теперь создадим метод configure и перенесем в него код конфигурации из контроллера.
-    func configure(whithWeather weather: Weather) {
-        let date = Date(timeIntervalSince1970: weather.date)
+    func configure(whithWeather weather: WeatherSwiftyJSON) {
+        let date = Date(timeIntervalSince1970: TimeInterval(weather.dt))
         let stringDate = WeatherCell.dateFormatter.string(from: date)
         self.weather.text = String(weather.temp)
         time.text = stringDate
-        icon.image = UIImage(named: weather.weatherIcon)
+        icon.image = UIImage(named: weather.icon)
     }
 
 }

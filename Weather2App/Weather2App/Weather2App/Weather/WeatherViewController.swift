@@ -13,7 +13,7 @@ class WeatherViewController: UIViewController {
     let weatherService = WeatherService()
     
     // массив с погодой
-    var weathers = [Weather]()
+    var weathers = [WeatherSwiftyJSON]()
     
     // Так как мы будем работать с классом Date, представляющим дату, и необходимо получать понятное ее представление, нужен специальный класс DateFormatter для такого преобразования. Определим его свойством, так как он нужен в одном экземпляре.
     let dateFormatter = DateFormatter()
@@ -45,7 +45,7 @@ extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataS
     // Изменяем метод подготовки ячейки.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as? WeatherCell {
-            // вызваtv метод конфигурирования в контроллере.
+            // вызвав метод конфигурирования в контроллере.
             cell.configure(whithWeather: weathers[indexPath.row])
             return cell
         }

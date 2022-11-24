@@ -8,5 +8,6 @@ target 'Weather2App' do
   # Pods for Weather2App
   pod 'Alamofire'
   pod 'RealmSwift'
+  pod 'SwiftyJSON'
 
 end
